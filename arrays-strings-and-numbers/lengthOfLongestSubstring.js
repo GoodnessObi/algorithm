@@ -37,18 +37,40 @@ Constraints:
 s consists of English letters, digits, symbols and spaces.
  */
 
+// var lengthOfLongestSubstring = function(s) {
+//   let currentLongest = [];
+//   let tempArr = [];
+  
+//   for (let i = 0; i < s.length; i++) {
+//       let current = s[i];
+      
+//       if (tempArr.includes(current)) {
+//           if (currentLongest.length < tempArr.length) {
+//               currentLongest = [...tempArr];
+//           }
+//           tempArr = [...tempArr.slice(tempArr.indexOf(current) + 1),current];  
+//       } else {
+//           tempArr.push(current);
+//       }
+      
+//   }
+  
+//   return Math.max (currentLongest.length, tempArr.length);
+// };
+
 var lengthOfLongestSubstring = function(s) {
   let currentLongest = [];
   let tempArr = [];
   
   for (let i = 0; i < s.length; i++) {
       let current = s[i];
+      let currentIndex = tempArr.indexOf(current);
       
-      if (tempArr.includes(current)) {
+      if (currentIndex > -1) {
           if (currentLongest.length < tempArr.length) {
               currentLongest = [...tempArr];
           }
-          tempArr = [...tempArr.slice(tempArr.indexOf(current) + 1),current];  
+          tempArr = [...tempArr.slice(currentIndex + 1),current];  
       } else {
           tempArr.push(current);
       }
