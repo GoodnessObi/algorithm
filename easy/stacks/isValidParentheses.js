@@ -48,7 +48,7 @@ var isValid = function(s) {
         return false;
     }   
   }
-  return openStack.length === 0;
+  return !openStack.length;
 };
 
 isValid('(((((((()');
